@@ -6,14 +6,15 @@ import javax.management.Attribute;
 public class Ejemplo {
 
     public static void main(String[] args) {
-        AttributeList nose = new AttributeList();
-        nose.add(new Attribute("edad", "hola"));
-        nose.add(new Attribute("nombre", "daniel"));
-        nose.add(new Attribute("edad", 17));
-        nose.add(new Attribute("fecha", 28));
+        AttributeList list = new AttributeList();
+        list.add(new Attribute("edad", 17));
+        list.add(new Attribute("apellido", "Garcia"));
+        list.add(new Attribute("documento", 101022));
+        list.add(new Attribute("nombre", "daniel"));
+        
 
         System.out.println("Atributos en la lista:");
-        for (Object obj : nose) {
+        for (Object obj : list) {
             if (obj instanceof Attribute) {
                 Attribute attribute = (Attribute) obj;
                 String name = attribute.getName();
@@ -22,9 +23,9 @@ public class Ejemplo {
             }
         }
         System.out.println("");
-        nose.remove(1);
+        list.remove(1);
         System.out.println("Se quito el elemento que se encontraba en la posicion 1");
-        for (Object obj : nose) {
+        for (Object obj : list) {
             if (obj instanceof Attribute) {
                 Attribute attribute = (Attribute) obj;
                 String name = attribute.getName();
@@ -33,10 +34,12 @@ public class Ejemplo {
             }
         }
         System.out.println("");
-        System.out.println(nose.get(0));
+        System.out.println("Atributo que se encontraba en la posicion 0");
+        System.out.println(list.get(0));
         System.out.println("");
-        nose.set(0, new Attribute("jojo", 54));
-        for (Object obj : nose) {
+        System.out.println("Se cambia la clave y el valor del atributo encontrado en la posicion 0");
+        list.set(0, new Attribute("Estatura", 1.8));
+        for (Object obj : list) {
             if (obj instanceof Attribute) {
                 Attribute attribute = (Attribute) obj;
                 String name = attribute.getName();
@@ -45,7 +48,9 @@ public class Ejemplo {
 
             }
         }
-        System.out.println(nose.size());
+        System.out.println("\nSe mide la cantidad de atributos que tiene la lista list");
+        
+        System.out.println(list.size()+"\n");
 
         Attribute atributo = new Attribute("nombre", "sara");
         AttributeList list1 = new AttributeList();
@@ -60,7 +65,7 @@ public class Ejemplo {
             System.out.println("Los dos attributeList son diferentes");
         }
         
-        if (list1.equals(nose)) {
+        if (list1.equals(list)) {
             System.out.println("Los dos attributeList son iguales");
         } else {
             System.out.println("Los dos attributeList son diferentes");
